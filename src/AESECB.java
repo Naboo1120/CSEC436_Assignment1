@@ -13,7 +13,7 @@ import javax.crypto.Cipher;
 public class AESECB {
   public static void main(String[] unused) throws Exception {
 
-    String cryptSpec = "AES/ECB/PKCS5Padding";
+    String cryptSpec = "AES/EBC/PKCS5Padding";
     // Generate a secret key
     KeyGenerator kg = KeyGenerator.getInstance("AES");
 
