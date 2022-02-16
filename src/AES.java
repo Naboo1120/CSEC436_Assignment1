@@ -8,15 +8,15 @@ import javax.crypto.Cipher;
 public class AES {
   public static void main(String[] unused) throws Exception {
 
-    String cryptSpec = "AES/CBC/PKCS5Padding";
+    String cryptSpec = "AES/CTR/NoPadding";
     // Generate a secret key
     KeyGenerator kg = KeyGenerator.getInstance("AES");
 
-    kg.init(128); 
+    kg.init(256);
     SecretKey key = kg.generateKey();
 
     // Sender's end
-    String s1="Hello World";
+    String s1="HelloHelloHello!HelloHelloHello!HelloHelloHello!HelloHelloHello!";
     byte[] m =s1.getBytes();
     byte []iv = {48, 63, 46, 58, 67, 7, 8, 8, 10,
     48, 63, 46, 58, 67, 7, 8, 8, 10};
@@ -27,6 +27,8 @@ public class AES {
     String s3 = new String (c);
     System.out.println("Cihphertext:" +  s3);
 
+    //Modification of Cipher Text
+    //c[1]=0;
 
     //Receiver's end
     Cipher cipher2 = Cipher.getInstance(cryptSpec);
